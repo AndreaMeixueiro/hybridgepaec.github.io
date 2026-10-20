@@ -59,6 +59,7 @@ a { color: inherit; }
 .chip-pink { background: var(--pink); }
 .chip-aqua { background: var(--aqua); }
 .chip-blue { background: var(--baby-blue); }
+.chip-green { background: var(--green); }
 
 /* Inicio */
 .hero { position: relative; overflow: hidden; padding: 96px 0 112px; }

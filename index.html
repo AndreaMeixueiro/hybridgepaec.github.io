@@ -82,7 +82,7 @@
       <div class="wrap">
         <p class="eyebrow">Publicaciones</p>
         <h2>Lo que crearon nuestros estudiantes</h2>
-        <p class="section-intro">Desliza cada carrusel para leer la publicación completa. Toca una imagen para verla en grande.</p>
+        <p class="section-intro">Desliza cada carrusel para leer la publicación completa. Toca una imagen para abrir la publicación en grande.</p>
 
         <div class="posts">
           <article class="post">
@@ -130,9 +130,15 @@
     </div>
   </footer>
 
-  <dialog class="lightbox" aria-label="Imagen ampliada">
-    <button class="lightbox-close" type="button" aria-label="Cerrar">×</button>
-    <img alt="">
+  <dialog class="post-modal" aria-labelledby="post-modal-title">
+    <div class="post-modal-inner">
+      <div class="carousel carousel-large"></div>
+      <div class="post-modal-info">
+        <h3 id="post-modal-title" class="post-modal-title"></h3>
+        <p class="post-modal-text"></p>
+      </div>
+    </div>
+    <button class="post-modal-close" type="button" aria-label="Cerrar">×</button>
   </dialog>
 
   <script src="assets/js/main.js"></script>

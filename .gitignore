@@ -1,0 +1,8 @@
+# Archivos de trabajo locales
+.work/
+
+# Manual de marca (61 MB, demasiado pesado para el repositorio)
+Manual Hybridge*.pdf
+
+# Configuración local de Claude
+.claude/

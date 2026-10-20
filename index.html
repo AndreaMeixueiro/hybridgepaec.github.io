@@ -82,7 +82,7 @@
       <div class="wrap">
         <p class="eyebrow">Publicaciones</p>
         <h2>Lo que crearon nuestros estudiantes</h2>
-        <p class="section-intro">Desliza cada carrusel para leer la publicación completa. Toca una imagen para abrir la publicación en grande.</p>
+        <p class="section-intro">Desliza cada carrusel para leer la publicación completa. Toca una imagen o un video para abrirlo en grande.</p>
 
         <div class="posts">
           <article class="post">
@@ -138,6 +138,19 @@
               <p>Seis reglas para usar la IA con cabeza: tu copiloto, no el jefe; doble verificación; ojo con los prejuicios; privacidad al máximo; el toque humano y tu superpoder.</p>
             </div>
           </article>
+
+          <article class="post">
+            <button class="video-cover" type="button" data-video="assets/videos/que-tanto-estamos-dispuestos-a-pensar.mp4" aria-label="Reproducir video: ¿Qué tanto estamos dispuestos a pensar?">
+              <img src="assets/videos/que-tanto-estamos-dispuestos-a-pensar.webp" alt="" loading="lazy" decoding="async" width="960" height="960">
+              <span class="play-icon" aria-hidden="true"></span>
+              <span class="video-duration">0:21</span>
+            </button>
+            <div class="post-body">
+              <span class="chip chip-pink">Video · 21 s</span>
+              <h3>¿Qué tanto estamos dispuestos a pensar?</h3>
+              <p>Es tan simple preguntarle a la IA por una respuesta, sin haberla pensado ni investigado por cuenta propia. Pero la IA no te quita el pensamiento: tú se lo entregas.</p>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -160,6 +173,7 @@
   <dialog class="post-modal" aria-labelledby="post-modal-title">
     <div class="post-modal-inner">
       <div class="carousel carousel-large"></div>
+      <video class="post-modal-video" controls playsinline preload="none" hidden></video>
       <div class="post-modal-info">
         <h3 id="post-modal-title" class="post-modal-title"></h3>
         <p class="post-modal-text"></p>

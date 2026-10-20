@@ -82,25 +82,44 @@ const modal = document.querySelector('.post-modal');
 const modalCarousel = modal.querySelector('.carousel');
 const modalTitle = modal.querySelector('.post-modal-title');
 const modalText = modal.querySelector('.post-modal-text');
+const modalVideo = modal.querySelector('.post-modal-video');
 let modalControls = null;
 
+function openModal(post) {
+  modalTitle.textContent = post.querySelector('h3').textContent;
+  modalText.textContent = post.querySelector('.post-body p').textContent;
+  modal.showModal();
+  document.body.classList.add('modal-open');
+}
+
 document.querySelector('.posts').addEventListener('click', (e) => {
+  const cover = e.target.closest('.video-cover');
+  if (cover) {
+    modalControls = null;
+    modalCarousel.hidden = true;
+    modalVideo.hidden = false;
+    modalVideo.poster = cover.querySelector('img').src;
+    modalVideo.src = cover.dataset.video;
+    openModal(cover.closest('.post'));
+    modalVideo.play().catch(() => {});
+    return;
+  }
+
   const img = e.target.closest('.carousel-slide img');
   if (!img) return;
   const post = img.closest('.post');
   const source = post.querySelector('.carousel');
+  modalVideo.hidden = true;
+  modalCarousel.hidden = false;
 
   modalCarousel.dataset.images = source.dataset.images;
   modalCarousel.dataset.count = source.dataset.count;
   modalCarousel.dataset.label = source.dataset.label;
   modalCarousel.classList.toggle('carousel-tall', source.classList.contains('carousel-tall'));
-  modalTitle.textContent = post.querySelector('h3').textContent;
-  modalText.textContent = post.querySelector('.post-body p').textContent;
 
   const start = Number(img.dataset.index);
   modalControls = buildCarousel(modalCarousel, start);
-  modal.showModal();
-  document.body.classList.add('modal-open');
+  openModal(post);
   modalControls.go(start, 'instant');
   modalControls.update();
   modalCarousel.querySelector('.carousel-track').focus({ preventScroll: true });
@@ -115,4 +134,5 @@ modal.querySelector('.post-modal-close').addEventListener('click', () => modal.c
 modal.addEventListener('click', (e) => { if (e.target === modal) modal.close(); });
 modal.addEventListener('close', () => {
   document.body.classList.remove('modal-open');
+  modalVideo.pause();
 });

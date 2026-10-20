@@ -177,6 +177,12 @@ blockquote {
   border-style: solid; border-width: 14px 0 14px 22px; border-color: transparent transparent transparent var(--black);
 }
 .video-cover:hover .play-icon { transform: translate(-50%, -50%) scale(1.08); }
+/* La publicación de video ocupa dos columnas y se acomoda en horizontal */
+.post-video { grid-column: span 2; flex-direction: row; }
+.post-video .video-cover { width: 50%; flex-shrink: 0; align-self: flex-start; }
+.post-video .post-body { align-self: center; padding: 28px 32px; }
+.post-video h3 { font-size: 1.6rem; }
+.post-video p { font-size: 1rem; }
 .video-duration {
   position: absolute; top: 12px; right: 12px;
   background: rgba(13, 13, 13, .72); color: var(--white); padding: 2px 10px; border-radius: 999px; font-size: .78rem;
@@ -239,6 +245,10 @@ body.modal-open { overflow: hidden; }
 }
 @media (max-width: 640px) {
   .posts { grid-template-columns: 1fr; }
+  .post-video { grid-column: auto; flex-direction: column; }
+  .post-video .video-cover { width: 100%; }
+  .post-video .post-body { padding: 22px 24px 26px; }
+  .post-video h3 { font-size: 1.25rem; }
   .nav a:not(:last-child) { display: none; }
   .hero { padding: 64px 0 80px; }
   .section, .closing { padding: 72px 0; }

@@ -96,6 +96,7 @@ document.querySelector('.posts').addEventListener('click', (e) => {
   const cover = e.target.closest('.video-cover');
   if (cover) {
     modalControls = null;
+    modal.classList.remove('is-wide');
     modalCarousel.hidden = true;
     modalVideo.hidden = false;
     modalVideo.poster = cover.querySelector('img').src;
@@ -116,6 +117,9 @@ document.querySelector('.posts').addEventListener('click', (e) => {
   modalCarousel.dataset.count = source.dataset.count;
   modalCarousel.dataset.label = source.dataset.label;
   modalCarousel.classList.toggle('carousel-tall', source.classList.contains('carousel-tall'));
+  const ratio = source.style.getPropertyValue('--ratio');
+  modalCarousel.style.setProperty('--ratio', ratio);
+  modal.classList.toggle('is-wide', Number(ratio) > 1);
 
   const start = Number(img.dataset.index);
   modalControls = buildCarousel(modalCarousel, start);

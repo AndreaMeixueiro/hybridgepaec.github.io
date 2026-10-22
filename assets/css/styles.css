@@ -126,7 +126,7 @@ blockquote {
 .carousel { position: relative; background: #1a1a1a; }
 .carousel-track {
   display: flex; overflow-x: auto; scroll-snap-type: x mandatory;
-  scrollbar-width: none; aspect-ratio: 4 / 5;
+  scrollbar-width: none; aspect-ratio: var(--ratio, 0.8);
 }
 .carousel-track::-webkit-scrollbar { display: none; }
 .carousel-slide { flex: 0 0 100%; scroll-snap-align: start; position: relative; }
@@ -216,8 +216,9 @@ body.modal-open { overflow: hidden; }
   max-width: calc(100vw - 32px); pointer-events: none;
 }
 .post-modal-inner > * { pointer-events: auto; }
+/* --ratio es ancho/alto de las imágenes de cada publicación (4:5 si no se indica) */
 .carousel-large {
-  width: min(calc(100vw - 32px), calc((100dvh - 64px) * 4 / 5), 720px);
+  width: min(calc(100vw - 32px), calc((100dvh - 64px) * var(--ratio, 0.8)), calc(720px * max(1, var(--ratio, 0.8))));
   border-radius: var(--radius); overflow: hidden; flex-shrink: 0;
 }
 .carousel-large .carousel-slide img { cursor: default; }
@@ -234,6 +235,7 @@ body.modal-open { overflow: hidden; }
   position: fixed; top: 16px; right: 16px; z-index: 3; width: 44px; height: 44px; border-radius: 50%;
   border: 0; background: var(--yellow); color: var(--black); font-size: 1.6rem; line-height: 1; cursor: pointer;
 }
+.post-modal.is-wide .post-modal-info { display: none; }
 @media (max-width: 1100px) {
   .post-modal-info { display: none; }
 }

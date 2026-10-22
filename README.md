@@ -1,7 +1,7 @@
 # Pensamiento crítico en tiempos de IA
 
 Blog escolar de estudiantes de Hybridge Prepa, publicado con GitHub Pages:
-https://andreameixueiro.github.io/hybridgepaec.github.io/
+https://hybridgeeducation.github.io/hybridgepaec/
 
 ## Estructura
 

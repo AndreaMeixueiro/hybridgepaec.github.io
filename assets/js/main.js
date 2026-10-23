@@ -114,6 +114,7 @@ document.querySelector('.posts').addEventListener('click', (e) => {
     modal.classList.remove('is-wide');
     modalCarousel.hidden = true;
     modalVideo.hidden = false;
+    modalVideo.style.setProperty('--ratio', cover.style.getPropertyValue('--ratio'));
     modalVideo.poster = cover.querySelector('img').src;
     modalVideo.src = cover.dataset.video;
     openModal(cover.closest('.post'));

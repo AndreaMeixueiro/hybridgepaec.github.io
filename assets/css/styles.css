@@ -114,6 +114,8 @@ blockquote {
 
 /* Publicaciones */
 .posts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; align-items: start; }
+/* Acomodo tipo Pinterest: main.js calcula cuántas filas de 4px ocupa cada publicación */
+.posts.masonry { grid-auto-rows: 4px; row-gap: 0; grid-auto-flow: dense; }
 .post {
   background: var(--black); border: 1px solid var(--line); border-radius: var(--radius);
   overflow: hidden; display: flex; flex-direction: column;

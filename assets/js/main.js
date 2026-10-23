@@ -67,6 +67,21 @@ function buildCarousel(carousel, startIndex = 0) {
   return { go, current, update };
 }
 
+// Acomodo tipo Pinterest: cada publicación ocupa tantas filas de 4px como su altura,
+// y la cuadrícula rellena los huecos (grid-auto-flow: dense en .posts.masonry)
+const postsGrid = document.querySelector('.posts');
+const ROW = 4;
+const GAP = 28;
+const fitPost = (post) => {
+  post.style.gridRowEnd = `span ${Math.ceil((post.getBoundingClientRect().height + GAP) / ROW)}`;
+};
+const resizeObserver = new ResizeObserver((entries) => entries.forEach((e) => fitPost(e.target)));
+postsGrid.querySelectorAll('.post').forEach((post) => {
+  fitPost(post);
+  resizeObserver.observe(post);
+});
+postsGrid.classList.add('masonry');
+
 function button(className, text, ariaLabel, onClick) {
   const b = document.createElement('button');
   b.type = 'button';
